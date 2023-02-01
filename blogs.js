@@ -51,7 +51,6 @@ const sampleBlogs = [
   ];
 
 //GET request for all movies
-
 router.get('/all', (req,res)=>{
     res.json({
       success: true,
@@ -59,6 +58,7 @@ router.get('/all', (req,res)=>{
     })
   })
 
+//GET request for single blog
 router.get('/single-blog/:titleToFind', (req,res,next)=>{
 
     const titleToFind = sampleBlogs.find((title)=>{
@@ -70,7 +70,8 @@ router.get('/single-blog/:titleToFind', (req,res,next)=>{
     })
   })
 
-router.delete('/delete-blog/:title', (req, res, next)=>{
+//DELETE request for single blog
+router.delete('/delete-blog/:titleToDelete', (req, res, next)=>{
     const titleToDelete = req.params.title
     const indexOfTitle = sampleBlogs.findIndex((sampleBlogs)=>{
         return sampleBlogs.title === titleToDelete
