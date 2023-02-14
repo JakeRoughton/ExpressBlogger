@@ -72,7 +72,7 @@ router.get('/all', async function(req, res) {
     const blogs = await db()
     .collection('sample_blogs')
     .findOne({
-        objectId:req.params.idToFind
+        id:req.params.id
     })
       res.json({
         success:true,
