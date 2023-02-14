@@ -39,7 +39,6 @@ router.get('/all', async function(req, res) {
           res.json(result);
         }
       }); 
-  
       res.json({
         success:true,
         blogs: blogs
@@ -68,12 +67,12 @@ router.get('/all', async function(req, res) {
       
   });
 
-//GET one blog from title search
-  router.get('/get-one/:titleToFind', async function(req, res) {
+//GET one blog from id search
+  router.get('/get-one/:idToFind', async function(req, res) {
     const blogs = await db()
     .collection('sample_blogs')
     .findOne({
-        title:req.params.titleToFind
+        objectId:req.params.idToFind
     })
       res.json({
         success:true,
